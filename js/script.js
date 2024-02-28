@@ -29,7 +29,8 @@ setInterval(() => {
     plusDivs(1);
 }, 1000);
 
-function setSenderUI(name, birthDate, gender, messages) {
+function setSenderUI(date, name, birthDate, gender, messages) {
+    document.getElementById("current-date").innerHTML = date;
     document.getElementById("sender-full-name").innerHTML = name;
     document.getElementById("sender-birth-date").innerHTML = birthDate;
     document.getElementById("sender-gender").innerHTML = gender;
@@ -37,6 +38,7 @@ function setSenderUI(name, birthDate, gender, messages) {
 }
 
 function validateForm() {
+    let date = Date();
     const name = document.forms["message-form"]["full-name"].value;
     const birthDate = document.forms["message-form"]["birth-date"].value;
     const gender = document.forms["message-form"]["gender"].value;
@@ -46,7 +48,7 @@ function validateForm() {
         alert ("Tidak boleh ada yang kosong!");
         return false;
     }
-setSenderUI(name, birthDate, gender, messages);
+setSenderUI(date, name, birthDate, gender, messages);
 
 return false;
 
